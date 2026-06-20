@@ -111,6 +111,32 @@ def _compute_error(sensors):
 
 
 def control_loop(sensors):
+    sensor = list(sensors.values())
+    weight = list(WEIGHTS.values())
+    numo = 0
+    deno = 0
+    setpoint = 0
+
+    for i in range(5):
+        numo += sensor[i] * weight[i]
+        deno += sensor[i]
+
+    if deno != 0:
+        position = numo / deno
+    else:
+        position = 0
+
+    error = setpoint - position
+    _integral += error
+    _prev_error = error
+    derivative = error - _prev_error
+
+    PID = KP * error + KI * _integral + KD * derivative
+
+    left = BASE_SPEED - PID
+    right = BASE_SPEED + PID
+    
+    return left, right
 
 """
 def control_loop(sensors):
