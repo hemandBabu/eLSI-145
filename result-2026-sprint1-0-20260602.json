@@ -1,0 +1,17 @@
+{
+    "generate": true,
+    "os_info": {
+        "machine": "AMD64",
+        "version": "",
+        "name": ""
+    },
+    "os_type": "Windows",
+    "wsl": false,
+    "self-os-declaration": true,
+    "gcc_or_g++_installed": true,
+    "python3_version_ok": true,
+    "coppeliasim_installed": true,
+    "meta": {
+        "evaluation_time": 0.04654383659362793
+    }
+}
